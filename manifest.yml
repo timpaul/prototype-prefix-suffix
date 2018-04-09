@@ -1,0 +1,6 @@
+---
+applications:
+- name: prototype-prefix-suffix
+  command: node start.js
+  memory: 256M
+  buildpack: nodejs_buildpack
