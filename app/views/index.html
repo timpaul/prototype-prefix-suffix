@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-o-width-container">
+  <main role="main" class="govuk-o-main-wrapper">
+    <div class="govuk-o-grid">
+      <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
+        <h1 class="govuk-heading-xl">
+          Form input prefix and suffix examples
+        </h1>
+
+        <p class="govuk-body-l">
+          Use form input prefixes and suffixes to indicate things like measurement units, currencies, percentages and area codes.
+        </p>
+
+        <h2 class="govuk-heading-m">
+          Prefix examples
+        </h2>
+
+        <div class="govuk-o-form-group">
+          <label class="govuk-c-label govuk-c-label__bold" for="full-name">
+          Ticket price
+          </label>
+          <span class="govuk-c-input govuk-c-input__prefix">£</span><input class="govuk-c-input govuk-!-width-one-quarter" id="ticket-price" name="ticket-price" type="text" pattern="[0-9]\d*(\.\d+)?" aria-label="Enter amount in pounds">
+        </div>
+
+        <div class="govuk-o-form-group">
+          <label class="govuk-c-label govuk-c-label__bold" for="telephone-number">
+          Telephone number
+          </label>
+          <span class="govuk-c-input govuk-c-input__prefix">+44</span><input class="govuk-c-input govuk-!-width-two-thirds" id="telephone-number" name="telephone-number" type="tel">
+        </div>
+
+        <div class="govuk-o-form-group">
+          <label class="govuk-c-label govuk-c-label__bold" for="access-code">
+          Access code
+          </label>
+          <span class="govuk-c-input govuk-c-input__prefix">DWP-</span><input class="govuk-c-input govuk-!-width-one-quarter" id="access-code" name="access-code" type="text">
+        </div>
+
+        <h2 class="govuk-heading-m">
+          Suffix examples
+        </h2>
+
+        <div class="govuk-o-form-group">
+          <label class="govuk-c-label govuk-c-label__bold" for="total-weight">
+          Total weight
+          </label>
+          <input class="govuk-c-input govuk-!-width-one-quarter" id="total-weight" name="total-weight" type="num" pattern="[0-9]\d*(\.\d+)?" aria-label="Enter total weight in kilograms"><span class="govuk-c-input govuk-c-input__suffix">kg</span>
+        </div>
+
+        <div class="govuk-o-form-group">
+          <label class="govuk-c-label govuk-c-label__bold" for="percent-complete">
+          Percent complete
+          </label>
+          <input class="govuk-c-input govuk-!-width-one-quarter" id="total-weight" name="percent-complete" type="num" aria-label="Enter percent complete"><span class="govuk-c-input govuk-c-input__suffix">%</span>
+        </div>
+
+
+        <h2 class="govuk-heading-m">
+          Notes
+        </h2>
+
+        <p class="govuk-body">
+          Prefixes and suffixes:
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            are connected to their inputs to indicate their relationship
+          </li>
+          <li>
+            are greyed-out to indicate that they cannot be edited
+          </li>
+          <li>
+            are bordered to avoid ragged-left form field alignment
+          </li>
+
+          <li>
+            don't have focus state to better indicate the editable area
+          </li>
+        </ul>
+
+        <p class="govuk-body">
+          To do:
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            make the focus state of suffixes appear over their associated form input
+          </li>
+          <li>
+            make the component work for mobile screen sizes
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
