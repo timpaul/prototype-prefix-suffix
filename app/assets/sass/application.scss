@@ -69,6 +69,7 @@ $govuk-light-grey: #f3f2f1; // New light grey colour
 .govuk-c-input__suffix{
   background-color: $govuk-light-grey;
   white-space: nowrap;
+  cursor: default; // emphasise non-editable status of prefixes and suffixes
   flex: 0;
   padding: 6px; // Fix text alignment
 }

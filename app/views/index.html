@@ -16,9 +16,9 @@
     for: params.id
   }) -}}
 <div class="input-wrapper">
-{%- if params.prefix %}<span class="govuk-c-input govuk-c-input__prefix">{{ params.prefix }}</span>{% endif %}<input class="govuk-c-input {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} govuk-c-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
+{%- if params.prefix %}<span class="govuk-c-input govuk-c-input__prefix" aria-hidden="true">{{ params.prefix }}</span>{% endif %}<input class="govuk-c-input {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} govuk-c-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
   {%- if params.value %} value="{{ params.value}}"{% endif %}
-  {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>{%- if params.suffix %}<span class="govuk-c-input govuk-c-input__suffix">{{ params.suffix }}</span>{% endif %}
+  {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>{%- if params.suffix %}<span class="govuk-c-input govuk-c-input__suffix" aria-hidden="true">{{ params.suffix }}</span>{% endif %}
 </div>
 </div>
 {% endmacro %}
@@ -99,26 +99,53 @@
           How it works
         </h2>
 
+        <h3 class="govuk-heading-m">
+          Prefixes and suffixes are not read out
+        </h3>
+
+        <p class="govuk-body">
+          The contents of prefixes and suffixes are a purely visual prompt and are not read out by assistive technology. Instead, use hidden text inside the form label to provide the neccessary context.
+        </p>
+
+        <h3 class="govuk-heading-m">
+          Validating inputs with prefixes and suffixes
+        </h3>
+
+        <p class="govuk-body">
+          Some users will not notice the prefix or suffix and will enter it manually into the input.
+          You should ignore manually entered prefixes and suffixes when validating the input.
+        </p>
+
+        <h3 class="govuk-heading-m">
+          Design decisions
+        </h3>
+
         <p class="govuk-body">
           Prefixes and suffixes:
         </p>
 
         <ul class="govuk-list govuk-list--bullet">
-          <li>can be any length</li>
-          <li>are joined to their inputs to indicate their connection</li>
-          <li>are greyed-out and have no focus to indicate that they cannot be edited</li>
+          <li>are connected to their inputs to emphasise their relationship</li>
+          <li>are styled to emphasise that they cannot be edited</li>
           <li>are bordered to avoid ragged-left form field alignment</li>
+          <li>are not read out to avoid repetition - use hidden label text instead</li>
         </ul>
 
-        <h3 class="govuk-heading-s">
-          Ignore manually entered prefixes and suffixes
-        </h3>
+        <h2 class="govuk-heading-l">
+          Research on this component
+        </h2>
 
         <p class="govuk-body">
-          Some users will not notice the prefix or suffix and will enter it manually into the input.
-          You should strip any manually entered prefixes and suffixes before validating the input.
+          More research is needed to determine how best to handle situations where users enter invalid characters (like a prefix or suffix) into a form input control.
         </p>
 
+        <p class="govuk-body">
+          This component has been tested in:
+        </p> 
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Voiceover on OS X</li>   
+        </ul>  
 
 
         <h2 class="govuk-heading-l">
