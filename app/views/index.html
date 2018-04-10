@@ -56,6 +56,7 @@
           prefix: "£"
         }) }}
 
+<!--
         {{ govukInput2({
           "label": {
             "text": "Telephone number"
@@ -66,6 +67,7 @@
           type: "tel",
           prefix: "+44"
         }) }}
+      -->
 
         {{ govukInput2({
           "label": {
@@ -105,9 +107,12 @@
           suffix: "%"
         }) }}
 
+        <p class="govuk-body">
+          <a href="https://github.com/timpaul/prototype-prefix-suffix">The code for these examples is available on GitHub</a>
+        </p>
 
-        <h2 class="govuk-heading-m">
-          Notes
+        <h2 class="govuk-heading-l">
+          How it works
         </h2>
 
         <p class="govuk-body">
@@ -115,26 +120,26 @@
         </p>
 
         <ul class="govuk-list govuk-list--bullet">
-          <li>
-            can be any length
-          </li>
-          <li>
-            are joined to their inputs to indicate their connection
-          </li>
-          <li>
-            are greyed-out to indicate that they cannot be edited
-          </li>
-          <li>
-            are bordered to avoid ragged-left form field alignment
-          </li>
-          <li>
-            don't have a focus state to indicate that only the input is editable
-          </li>
+          <li>can be any length</li>
+          <li>are joined to their inputs to indicate their connection</li>
+          <li>are greyed-out and have no focus to indicate that they cannot be edited</li>
+          <li>are bordered to avoid ragged-left form field alignment</li>
         </ul>
 
+        <h3 class="govuk-heading-s">
+          Ignore manually entered prefixes and suffixes
+        </h3>
+
         <p class="govuk-body">
-          To do:
+          Some users will not notice the prefix or suffix and will enter it manually into the input.
+          You should strip any manually entered prefixes and suffixes before validating the input.
         </p>
+
+
+
+        <h3 class="govuk-heading-s">
+          To do:
+        </h3>
 
         <ul class="govuk-list govuk-list--bullet">
           <li>
