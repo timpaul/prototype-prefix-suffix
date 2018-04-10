@@ -59,11 +59,17 @@ $path: "/public/images/";
 
 // STYLES FOR FORM INPUT PREFIXES AND SUFFIXES
 
+.input-wrapper{
+  display: flex;
+}
+
 $govuk-light-grey: #f3f2f1; // New light grey colour
 
 .govuk-c-input__prefix,
 .govuk-c-input__suffix{
   background-color: $govuk-light-grey;
+  white-space: nowrap;
+  flex: 0;
 }
 
 .govuk-c-input__prefix{

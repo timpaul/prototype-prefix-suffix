@@ -15,9 +15,11 @@
     errorMessage: params.errorMessage,
     for: params.id
   }) -}}
+<div class="input-wrapper">
 {%- if params.prefix %}<span class="govuk-c-input govuk-c-input__prefix">{{ params.prefix }}</span>{% endif %}<input class="govuk-c-input {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} govuk-c-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
   {%- if params.value %} value="{{ params.value}}"{% endif %}
   {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>{%- if params.suffix %}<span class="govuk-c-input govuk-c-input__suffix">{{ params.suffix }}</span>{% endif %}
+</div>
 </div>
 {% endmacro %}
 
