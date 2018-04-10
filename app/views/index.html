@@ -1,5 +1,26 @@
 {% extends "layout.html" %}
 
+{% macro govukInput2(params) %}
+  {% from "label/macro.njk" import govukLabel %}
+
+<div class="govuk-o-form-group {%- if params.errorMessage %} govuk-o-form-group--error{% endif %}">
+
+  {{- govukLabel({
+    html: params.label.html,
+    text: params.label.text,
+    hintText: params.label.hintText,
+    hintHtml: params.label.hintHtml,
+    classes: params.label.classes,
+    attributes: params.label.attributes,
+    errorMessage: params.errorMessage,
+    for: params.id
+  }) -}}
+{%- if params.prefix %}<span class="govuk-c-input govuk-c-input__prefix">{{ params.prefix }}</span>{% endif %}<input class="govuk-c-input {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} govuk-c-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
+  {%- if params.value %} value="{{ params.value}}"{% endif %}
+  {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>{%- if params.suffix %}<span class="govuk-c-input govuk-c-input__suffix">{{ params.suffix }}</span>{% endif %}
+</div>
+{% endmacro %}
+
 {% block page_title %}
   GOV.UK prototype kit
 {% endblock %}
@@ -22,44 +43,65 @@
           Prefix examples
         </h2>
 
-        <div class="govuk-o-form-group">
-          <label class="govuk-c-label govuk-c-label__bold" for="full-name">
-          Ticket price
-          </label>
-          <span class="govuk-c-input govuk-c-input__prefix">£</span><input class="govuk-c-input govuk-!-width-one-quarter" id="ticket-price" name="ticket-price" type="text" pattern="[0-9]\d*(\.\d+)?" aria-label="Enter amount in pounds">
-        </div>
+        {{ govukInput2({
+          "label": {
+            "text": "Ticket price"
+          },
+          id: "ticket-price",
+          name: "ticket-price",
+          classes: "govuk-!-width-one-quarter",
+          type: "number",
+          prefix: "£"
+        }) }}
 
-        <div class="govuk-o-form-group">
-          <label class="govuk-c-label govuk-c-label__bold" for="telephone-number">
-          Telephone number
-          </label>
-          <span class="govuk-c-input govuk-c-input__prefix">+44</span><input class="govuk-c-input govuk-!-width-two-thirds" id="telephone-number" name="telephone-number" type="tel">
-        </div>
+        {{ govukInput2({
+          "label": {
+            "text": "Telephone number"
+          },
+          id: "telephone-number",
+          name: "telephone-number",
+          classes: "govuk-!-width-two-thirds",
+          type: "tel",
+          prefix: "+44"
+        }) }}
 
-        <div class="govuk-o-form-group">
-          <label class="govuk-c-label govuk-c-label__bold" for="access-code">
-          Access code
-          </label>
-          <span class="govuk-c-input govuk-c-input__prefix">DWP -</span><input class="govuk-c-input govuk-!-width-one-quarter" id="access-code" name="access-code" type="text">
-        </div>
+        {{ govukInput2({
+          "label": {
+            "text": "Access code"
+          },
+          id: "access-code",
+          name: "access-code",
+          classes: "govuk-!-width-one-quarter",
+          prefix: "DWP -"
+        }) }}
+
 
         <h2 class="govuk-heading-m">
           Suffix examples
         </h2>
 
-        <div class="govuk-o-form-group">
-          <label class="govuk-c-label govuk-c-label__bold" for="total-weight">
-          Total weight
-          </label>
-          <input class="govuk-c-input govuk-!-width-one-quarter" id="total-weight" name="total-weight" type="num" pattern="[0-9]\d*(\.\d+)?" aria-label="Enter total weight in kilograms"><span class="govuk-c-input govuk-c-input__suffix">kg</span>
-        </div>
 
-        <div class="govuk-o-form-group">
-          <label class="govuk-c-label govuk-c-label__bold" for="percent-complete">
-          Percent complete
-          </label>
-          <input class="govuk-c-input govuk-!-width-one-quarter" id="total-weight" name="percent-complete" type="num" aria-label="Enter percent complete"><span class="govuk-c-input govuk-c-input__suffix">%</span>
-        </div>
+        {{ govukInput2({
+          "label": {
+            "text": "Total weight"
+          },
+          id: "total-weight",
+          name: "total-weight",
+          classes: "govuk-!-width-one-quarter",
+          type: "number",
+          suffix: "kg"
+        }) }}
+
+        {{ govukInput2({
+          "label": {
+            "text": "Percent complete"
+          },
+          id: "percent-complete",
+          name: "percent-complete",
+          classes: "govuk-!-width-one-quarter",
+          type: "number",
+          suffix: "%"
+        }) }}
 
 
         <h2 class="govuk-heading-m">
@@ -72,6 +114,9 @@
 
         <ul class="govuk-list govuk-list--bullet">
           <li>
+            can be any length
+          </li>
+          <li>
             are joined to their inputs to indicate their connection
           </li>
           <li>
@@ -80,7 +125,6 @@
           <li>
             are bordered to avoid ragged-left form field alignment
           </li>
-
           <li>
             don't have a focus state to indicate that only the input is editable
           </li>
