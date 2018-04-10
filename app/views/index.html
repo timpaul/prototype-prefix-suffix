@@ -47,12 +47,11 @@
 
         {{ govukInput2({
           "label": {
-            "text": "Ticket price"
+            "html": "Ticket price <span class='visually-hidden'>in £</span>"
           },
           id: "ticket-price",
           name: "ticket-price",
           classes: "govuk-!-width-one-quarter",
-          type: "number",
           prefix: "£"
         }) }}
 
@@ -63,7 +62,7 @@
           id: "access-code",
           name: "access-code",
           classes: "govuk-!-width-one-quarter",
-          prefix: "DWP -"
+          prefix: "PEX"
         }) }}
 
 
@@ -74,12 +73,11 @@
 
         {{ govukInput2({
           "label": {
-            "text": "Total weight"
+            "html": "Total weight <span class='visually-hidden'>in kilograms</span>"
           },
           id: "total-weight",
           name: "total-weight",
           classes: "govuk-!-width-one-quarter",
-          type: "number",
           suffix: "kg"
         }) }}
 
@@ -90,7 +88,6 @@
           id: "percent-complete",
           name: "percent-complete",
           classes: "govuk-!-width-one-quarter",
-          type: "number",
           suffix: "%"
         }) }}
 
