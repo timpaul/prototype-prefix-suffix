@@ -81,6 +81,10 @@ $govuk-light-grey: #f3f2f1; // New light grey colour
   border-left: 0;
 }
 
+.govuk-c-input:focus {
+  z-index: 1 // Bump up the z-index on focus so it appears over the suffix
+}
+
 
 
 

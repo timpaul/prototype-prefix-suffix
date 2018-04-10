@@ -56,19 +56,6 @@
           prefix: "£"
         }) }}
 
-<!--
-        {{ govukInput2({
-          "label": {
-            "text": "Telephone number"
-          },
-          id: "telephone-number",
-          name: "telephone-number",
-          classes: "govuk-!-width-two-thirds",
-          type: "tel",
-          prefix: "+44"
-        }) }}
-      -->
-
         {{ govukInput2({
           "label": {
             "text": "Access code"
@@ -137,16 +124,20 @@
 
 
 
-        <h3 class="govuk-heading-s">
-          To do:
-        </h3>
+        <h2 class="govuk-heading-l">
+          To do
+        </h2>
+
+        <p class="govuk-body">
+          We need to:
+        </p>
 
         <ul class="govuk-list govuk-list--bullet">
           <li>
-            make the focus state of suffixes appear over their associated form input
+            add JavaScript to detect if the user enters the prefix or suffix into the input, and ignore or mask it
           </li>
           <li>
-            add JavaScript to detect if the user enters the prefix or suffix into the input, and ignore or mask it
+            make sure that the 3 examples that take decimals trigger the number pad, let users enter decimal places
           </li>
         </ul>
         
