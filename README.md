@@ -2,5 +2,7 @@
 
 
 ## Demo
-[https://prototype-prefix-suffix.herokuapp.com/](Demo here)
+
+[Demo here](https://prototype-prefix-suffix.herokuapp.com/)
+
 U:designsystem P:beta
